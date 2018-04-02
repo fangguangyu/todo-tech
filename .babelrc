@@ -1,0 +1,8 @@
+{
+  "presets": [
+    "env"
+  ],
+  "plugins": [
+    "transform-vue-jsx"     //vue也可以支持写jsx文件，要先加载这个模块来编译jsx文件。
+  ]
+}

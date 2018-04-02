@@ -1,0 +1,8 @@
+root = true    //设置便捷，让编辑器自动为我们的代码做一些配置。
+[*]
+charset = utf-8
+end_of_line = 1f
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
