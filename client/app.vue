@@ -2,7 +2,9 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <todo></todo>
+    <router-link :to="{name: 'app'}">aaa</router-link>
+    <router-link to="/app">aaa</router-link>
+    <router-view></router-view>
     <Footer></Footer>
   </div>
 </template>

@@ -1,6 +1,7 @@
 const path = require('path')
 const createVueLoaderOptions = require('./vue-loader.config')
 
+
 //cross-env 模块的让window系统和mac系统的node的process.env全局变量定义为一致。
 
 const isDev = process.env.NODE_ENV === 'development'     //等译一个全局的进程变量来判断是开发环境还是生产环境。

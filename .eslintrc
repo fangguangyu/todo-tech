@@ -3,5 +3,10 @@
   "plugins": [
     "html"    //用来解析.vue 文件中的html部分。要安装eslint-plugin-html模块
   ],
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "no-new": "off",
+    "spaced-comment": "off",
+    "no-multiple-empty-lines": "off"
+  }
 }

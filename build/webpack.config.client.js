@@ -1,5 +1,5 @@
 const path = require('path')
-const HTMLPlugin = require('html-webpack-plugin')     //作为前端项目要有一个html文件作为入口，加入一个模块。
+const HTMLPlugin = require('html-webpack-plugin')  //作为前端项目要有一个html文件作为入口，加入一个模块。
 const webpack = require('webpack')
 const merge = require('webpack-merge')   //webpack的合并模块
 const ExtractPlugin = require('extract-text-webpack-plugin')    //单独打包不包含javascript 的css代码打包。
@@ -14,7 +14,10 @@ const defaultPlugins = [
             NODE_ENV: isDev ? '"development"' : '"production"'     //webpack在打包的时候会根据这个变量去选择不同版本的vue打包库。
         }
     }),
-    new HTMLPlugin()     //html-webpack-plugins 的设置这样才能浏览器才能跑起来。
+    new HTMLPlugin({
+      template: path.join(__dirname, 'template.html')
+    })     //html-webpack-plugins 的设置这样才能浏览器才能跑起来。
+
 ]
 //cross-env 模块的让window系统和mac系统的node的process.env全局变量定义为一致。
 
@@ -28,6 +31,7 @@ const devServer = {
     overlay: {     //如果有任何错误让起显示到浏览器上面
         errors: true,
     },
+    historyApiFallback: true,
     hot: true
 }
 
@@ -59,6 +63,7 @@ if (isDev) {
         plugins: defaultPlugins.concat([
             new webpack.HotModuleReplacementPlugin(),    //可以让页面渲染的时候不刷新。而是只加载修改那部分组件。
             new webpack.NoEmitOnErrorsPlugin(),
+
         ])
     })
 } else {    //正式环境打包
