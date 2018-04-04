@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')   //webpack的合并模块
 const ExtractPlugin = require('extract-text-webpack-plugin')    //单独打包不包含javascript 的css代码打包。
 const baseConfig  = require('./webpack.config.base')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 
 
 const isDev = process.env.NODE_ENV === 'development'     //等译一个全局的进程变量来判断是开发环境还是生产环境。
@@ -16,8 +17,8 @@ const defaultPlugins = [
     }),
     new HTMLPlugin({
       template: path.join(__dirname, 'template.html')
-    })     //html-webpack-plugins 的设置这样才能浏览器才能跑起来。
-
+    }),     //html-webpack-plugins 的设置这样才能浏览器才能跑起来。
+    new VueClientPlugin()
 ]
 //cross-env 模块的让window系统和mac系统的node的process.env全局变量定义为一致。
 

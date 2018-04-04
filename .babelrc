@@ -1,8 +1,10 @@
 {
   "presets": [
-    "env"
+    "env",
+    "stage-1"
   ],
   "plugins": [
-    "transform-vue-jsx"     //vue也可以支持写jsx文件，要先加载这个模块来编译jsx文件。
+    "transform-vue-jsx",     //vue也可以支持写jsx文件，要先加载这个模块来编译jsx文件。
+    "syntax-dynamic-import"    //异步加载组件所需的库。
   ]
 }

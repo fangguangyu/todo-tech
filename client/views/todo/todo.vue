@@ -27,6 +27,25 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before enter')
+    //组件内的数据可以通过路由传递过来。判断。拿值
+    /*next(vm => {
+      console.log('after enter vm .id is', vm.id)
+    })*/
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('todo Update enter')
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo leave enter')
+    //当用户填写了表单之后。用户准备离开可以判断其让他确定时否要离开。/
+    /*if (global.confirm('are you sure')) {
+      next()
+    }*/
+  },
   data () {
     return {
       todos: [],
