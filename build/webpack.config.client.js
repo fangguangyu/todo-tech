@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')   //webpack的合并模块
 const ExtractPlugin = require('extract-text-webpack-plugin')    //单独打包不包含javascript 的css代码打包。
 const baseConfig  = require('./webpack.config.base')
-const VueClientPlugin = require('vue-server-renderer/client-plugin')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')  //把客户端的js代码生成一个默认文件。
 
 
 const isDev = process.env.NODE_ENV === 'development'     //等译一个全局的进程变量来判断是开发环境还是生产环境。
