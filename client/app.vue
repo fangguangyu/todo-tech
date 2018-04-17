@@ -43,6 +43,9 @@ export default {
       this.updateCount(i++)
     }, 1000)*/
   },
+  metaInfo: {
+    title: 'this\'s the new title'
+  },
   components: {
     Header,
     Footer,

@@ -1,6 +1,6 @@
 const Koa = require('koa')    //node服务端的一个框架。
-const send = require('koa-send')
-const path = require('path')
+/*const send = require('koa-send')
+const path = require('path')*/
 const pageRouter = require('./routers/dev-ssr')
 
 const app = new Koa()

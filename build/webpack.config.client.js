@@ -70,7 +70,7 @@ if (isDev) {
 } else {    //正式环境打包
     config = merge(baseConfig, {
         entry: {
-            app: path.join(__dirname, '../client/index.js'),
+            app: path.join(__dirname, '../client/client-entry.js'),
             vendor: ['vue']
         },
         output: {

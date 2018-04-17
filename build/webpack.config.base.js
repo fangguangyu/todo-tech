@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development'     //等译一个全局的
 
 const config = {
     target: 'web', //运行再web浏览器
-    entry: path.join(__dirname, '../client/index.js'),  //入口文件。
+    entry: path.join(__dirname, '../client/client-entry.js'),  //入口文件。
     output: {
         filename: 'bundle.[hash:8].js',
         path: path.join(__dirname, '../dist'),    //打包的出口文件目录
