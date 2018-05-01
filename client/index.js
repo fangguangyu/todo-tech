@@ -56,8 +56,9 @@ router.beforeResolve((to, from, next) => {
   next()
 })
 
-router.afterEach((to, from) => {
+router.afterEach((to, from, next) => {
   console.log('vefore each invoked')
+  next()
 })
 
 new Vue({

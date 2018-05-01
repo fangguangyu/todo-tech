@@ -45,6 +45,7 @@ export default {
     /*if (global.confirm('are you sure')) {
       next()
     }*/
+    next()
   },
   data () {
     return {

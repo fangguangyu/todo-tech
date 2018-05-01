@@ -2,13 +2,15 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{fullName}} {{count}}</p>
-    <router-link to="/app">aaa</router-link>
-    <router-link to="/login">aaa</router-link>
+    <!-- <p>{{fullName}} {{count}}</p>
+    <router-link to="app">aaa</router-link>
+    <router-link to="login">aaa</router-link> -->
     <transition name = 'fade'>
       <router-view></router-view>
     </transition>
     <Footer></Footer>
+    <button @click="notify">点击</button>
+    <!-- <Notification content='test notification'></Notification> -->
   </div>
 </template>
 
@@ -25,7 +27,7 @@ import Todo from './views/todo/todo.vue'
 
 export default {
   mounted () {
-    console.log(this.$store)
+    //console.log(this.$store)
     //let i = 1
     //用来出发actions的dispatch，相当于commit是用来出发mutations的.
     /*this.$store.dispatch('updateCountAsync', {
@@ -35,10 +37,10 @@ export default {
     /*setInterval(() => {
       this.$store.commit('updateCount', i++)
     }, 1000)*/
-    this.updateCountAsync({
-      num: 5,
-      time: 2000
-    })
+    // this.updateCountAsync({
+    //   num: 5,
+    //   time: 2000
+    // })
     /*setInterval(() => {
       this.updateCount(i++)
     }, 1000)*/
@@ -53,7 +55,13 @@ export default {
   },
   methods: {
     ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount'])
+    ...mapMutations(['updateCount']),
+    notify () {
+      this.$notify({
+        content: 'test notify 1',
+        btn: 'close'
+      })
+    }
   },
   computed: {
     ...mapState(['count']),

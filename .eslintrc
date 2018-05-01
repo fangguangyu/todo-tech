@@ -7,6 +7,7 @@
   "rules": {
     "no-new": "off",
     "spaced-comment": "off",
-    "no-multiple-empty-lines": "off"
+    "no-multiple-empty-lines": "off",
+    "eol-last": "off"
   }
 }
