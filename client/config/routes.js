@@ -23,7 +23,13 @@ export default [
     beforeEnter (to, from, next) {
       console.log('app route before enter')
       next()
-    }
+    },
+    children: [
+      {
+        path: '/test',
+        component: Login
+      }
+    ]
   },
   {
     path: '/login',

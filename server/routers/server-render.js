@@ -24,6 +24,6 @@ module.exports = async(ctx, renderer, template) => {
     ctx.body = html
   } catch (err) {
     console.log('render err', err)
-    throw err
-  }
+throw err
+}
 }
