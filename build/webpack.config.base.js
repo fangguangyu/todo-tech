@@ -11,7 +11,7 @@ const config = {
     entry: path.join(__dirname, '../client/client-entry.js'),  //入口文件。
     output: {
         filename: 'bundle.[hash:8].js',
-        path: path.join(__dirname, '../dist'),    //打包的出口文件目录
+        path: path.join(__dirname, '../public'),    //打包的出口文件目录
         publicPath: 'http://127.0.0.1:8000/'
     },
     module: {      //编译vue,js,图片的loader。

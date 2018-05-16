@@ -3,8 +3,7 @@
     <div id="cover"></div>
     <Header></Header>
     <p>{{fullName}} {{count}}</p>
-    <router-link to="/app">aaa</router-link>
-    <router-link to="/login">aaa</router-link>
+    <router-link to="login">login</router-link>
     <transition name = 'fade'>
       <router-view></router-view>
     </transition>

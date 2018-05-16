@@ -19,6 +19,7 @@
       @toggle="toggleFilter"
       @clearAllCompleted="clearAllCompleted"
     />
+    <router-view/>
   </section>
 </template>
 
