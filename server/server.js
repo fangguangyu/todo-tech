@@ -3,8 +3,12 @@ const Koa = require('koa')    //node服务端的一个框架。
 const path = require('path')*/
 const staticRouter = require('./routers/static')
 const apiRouter = require('./routers/api')
-const app = new Koa()
+const createDb = require('./db/db')
+const config = require('../app.config')
 
+const db = createDb(config.db.appId, config.db.appKey)
+
+const app = new Koa()
 const isDev = process.env.NODE_ENV === 'development'
 
 
@@ -22,6 +26,11 @@ app.use(async (ctx, next) => {
       ctx.bosy = 'please try again later'
     }
   }
+})
+
+app.use(async (ctx, next) => {
+  ctx.db = db
+  await next()
 })
 
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())

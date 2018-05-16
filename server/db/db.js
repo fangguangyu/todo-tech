@@ -9,7 +9,7 @@ const request = axios.create({
 
 //创建一个处理错误的函数
 const createError = (code, resp) => {
-  const err = new Error(resp, message)
+  const err = new Error(resp.message)
   err.code = code
   return err
 }
@@ -35,6 +35,13 @@ module.exports = (appId, appKey) => {
       return handleRequest(await request.get(`/${className}`, {
         headers: getHeaders()
       }))
+    },
+    async addTodo (todo) {
+      return handleRequest(await request.post(
+        `/${className}`,
+        todo,
+        {headers: getHeaders()}
+      ))
     }
   }
 }
