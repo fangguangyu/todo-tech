@@ -19,13 +19,17 @@ export default {
       if (this.autoClose) {
         this.timer = setTimeout(() => {
           this.visible = false
-        }, this.auto.autoClose)
+        }, this.autoClose)
       }
     },
     clearTimer () {
       if (this.timer) {
         clearTimeout(this.timer)
       }
+    },
+    afterEnter () {
+      //debugger // eslint-disable-line
+      this.height = this.$el.offsetHeight
     }
   },
   beforeDestory () {
@@ -33,7 +37,10 @@ export default {
   },
   data () {
     return {
-      verticaloffset: 0
+      verticaloffset: 0,
+      autoClose: 3000,
+      height: 0,
+      visible: false
     }
   }
 }
