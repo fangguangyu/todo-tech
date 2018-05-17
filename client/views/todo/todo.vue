@@ -67,6 +67,11 @@ export default {
       return this.todos.filter(todo => completed === todo.completed)
     }
   },
+  mounted () {
+    if (window.screen.width < 769) {
+      console.log(123)
+    }
+  },
   methods: {
     addTodo (e) {
       // 为this.todos 数组最前面添加一个对象。
@@ -118,5 +123,3 @@ export default {
   box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
 }
 </style>
-
-

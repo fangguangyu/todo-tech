@@ -1,19 +1,24 @@
 <template>
   <header :class="$style.mainHeader">
     <h1>JTodo</h1>
+    <Swiper></Swiper>
   </header>
 </template>
 
 <script>
-/*  export default {
-      computed: {
-          $style() {
-              return {
-                  mainHeader: '[path]-[name]-[hash:base64:5]'    //生成一个这种形式的class命名
-              }
-          }
-      }
-  } */
+import Swiper from '../views/swiper/swiper.vue'
+export default {
+  // computed: {
+  //     // $style() {
+  //     //     return {
+  //     //         mainHeader: '[path]-[name]-[hash:base64:5]'    //生成一个这种形式的class命名
+  //     //     }
+  //     // }
+  // },
+  components: {
+    Swiper
+  }
+}
 </script>
 
 <style lang="stylus" module>
@@ -27,4 +32,3 @@
   }
 }
 </style>
-

@@ -53,7 +53,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: true
               }
             },
             'stylus-loader'
@@ -64,8 +64,7 @@ if (isDev) {
     devServer,
     plugins: defaultPlugins.concat([
       new webpack.HotModuleReplacementPlugin(),    //可以让页面渲染的时候不刷新。而是只加载修改那部分组件。
-      new webpack.NoEmitOnErrorsPlugin(),
-
+      new webpack.NoEmitOnErrorsPlugin()
     ])
   })
 } else {    //正式环境打包

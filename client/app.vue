@@ -2,9 +2,6 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <!-- <p>{{fullName}} {{count}}</p>
-    <router-link to="app">aaa</router-link>
-    <router-link to="login">aaa</router-link> -->
     <transition name = 'fade'>
       <router-view></router-view>
     </transition>
@@ -15,6 +12,7 @@
 </template>
 
 <script>
+
 import {
   mapState,
   mapGetters,
@@ -24,6 +22,7 @@ import {
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 import Todo from './views/todo/todo.vue'
+
 
 export default {
   mounted () {
@@ -95,5 +94,3 @@ export default {
   z-index -1
 }
 </style>
-
-
