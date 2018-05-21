@@ -1,13 +1,14 @@
 {
   "extends": "standard",
   "plugins": [
-    "html"    //用来解析.vue 文件中的html部分。要安装eslint-plugin-html模块
+    "html"
   ],
   "parser": "babel-eslint",
   "rules": {
     "no-new": "off",
     "spaced-comment": "off",
     "no-multiple-empty-lines": "off",
-    "eol-last": "off"
+    "eol-last": "off",
+    "no-multi-spaces": "off"
   }
 }

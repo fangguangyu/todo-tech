@@ -14,7 +14,7 @@ const createError = (code, resp) => {
   return err
 }
 
-const handleRequest = ({ status, data, ...rest }) => {
+const handleRequest = ({ status, data, rest }) => {
   if (status === 200) {
     return data
   } else {
@@ -41,6 +41,32 @@ module.exports = (appId, appKey) => {
         `/${className}`,
         todo,
         {headers: getHeaders()}
+      ))
+    },
+    async updateTodo (id, todo) {
+      return handleRequest(await request.put(
+        `/${className}/${id}`,
+        todo,
+        {headers: getHeaders()}
+      ))
+    },
+    async deleteTodo (id) {
+      return handleRequest(await request.delete(
+        `/${className}/${id}`,
+        {headers: getHeaders()}
+      ))
+    },
+    async deleteCompleted (ids) {
+      const requests = ids.map(id => {
+        return {
+          method: 'DELETE',
+          path: `/mcm/api/${className}/${id}`
+        }
+      })
+      return handleRequest(await request.post(
+        '/batch',
+        { requests },
+        { headers: getHeaders() }
       ))
     }
   }
