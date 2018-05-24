@@ -24,6 +24,9 @@
 </template>
 
 <script>
+import {
+  mapState, mapActions
+} from 'vuex'
 import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
@@ -50,7 +53,6 @@ export default {
   },
   data () {
     return {
-      todos: [],
       filter: 'all'
     }
   },
@@ -59,6 +61,7 @@ export default {
     Tabs
   },
   computed: {
+    ...mapState(['todos']),
     filteredTodos () {
       if (this.filter === 'all') {
         return this.todos
@@ -68,11 +71,13 @@ export default {
     }
   },
   mounted () {
+    this.fetchTodos()
     if (window.screen.width < 769) {
       console.log(123)
     }
   },
   methods: {
+    ...mapActions(['fetchTodos']),
     addTodo (e) {
       // 为this.todos 数组最前面添加一个对象。
       this.todos.unshift({

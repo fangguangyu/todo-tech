@@ -34,6 +34,10 @@ const devServer = {
   },
   headers: { 'Access-Control-Allow-Origin': '*' }, //允许跨域加载热更替的json文件
   historyApiFallback: true,
+  proxy: {
+    '/api': 'http://127.0.0.1:3333',
+    '/user': 'http://127.0.0.1:3333'
+  },
   hot: true
 }
 
