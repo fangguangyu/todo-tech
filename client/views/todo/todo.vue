@@ -5,13 +5,14 @@
       class="add-input"
       autofocus="autofocus"
       placeholder="接下去要做什么？"
-      @keyup.enter="addTodo"
+      @keyup.enter="handleAdd"
     >
     <item
       :todo="todo"
       v-for="todo in filteredTodos"
       :key="todo.id"
       @del="deleteTodo"
+      @toggle='toggleTodoState'
     />
     <tabs
       :filter="filter"
@@ -29,7 +30,6 @@ import {
 } from 'vuex'
 import Item from './item.vue'
 import Tabs from './tabs.vue'
-let id = 0
 export default {
   beforeRouteEnter (to, from, next) {
     console.log('todo before enter')
@@ -77,20 +77,42 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchTodos']),
-    addTodo (e) {
+    ...mapActions([
+      'fetchTodos',
+      'addTodo',
+      'deleteTodo',
+      'updateTodo',
+      'deleteAllCompleted'
+    ]),
+
+    handleAdd (e) {
       // 为this.todos 数组最前面添加一个对象。
-      this.todos.unshift({
-        id: id++,
-        content: e.target.value.trim(),
+      const content = e.target.value.trim()
+      if (!content) {
+        this.$notify({
+          content: '必须输入要做的内容'
+        })
+        return
+      }
+      const todo = {
+        content,
         completed: false
-      })
+      }
+      this.addTodo(todo)
       e.target.value = '' // 清空input 框力的数据。
       console.log(this.todos)
     },
-    deleteTodo (id) {
-      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1) // 找到当前的id删除掉1个对象。
+    toggleTodoState (todo) {
+      this.updateTodo({
+        id: todo.id,
+        todo: Object.assign({}, todo, {
+          completed: !todo.completed
+        })
+      })
     },
+    // deleteTodo (id) {
+    //   this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1) // 找到当前的id删除掉1个对象。
+    // },
     toggleFilter (state) {
       this.filter = state
     },

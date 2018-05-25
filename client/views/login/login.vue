@@ -23,41 +23,51 @@
   </div>
 </template>
 <script>
-  export default {
-    props: {
+import {
+  mapActions
+} from 'vuex'
+export default {
+  props: {
 
-    },
-    data () {
-      return {
-        username: '',
-        password: '',
-        errorMsg: ''
-      }
-    },
-    methods: {
-      doSubmit (e) {
-        e.preventDefault()
-        if (this.validate()) {
-          return false
-        }
-      },
-      validate () {
-        if (!this.username.trim()) {
-          this.errorMsg = '姓名不能为空'
-          return false
-        }
-        if (!this.password.trim()) {
-          this.errorMsg = '密码不能为空'
-          return false
-        }
-        this.errorMsg = ''
-        return true
-      }
-    },
-    created () {
-
+  },
+  data () {
+    return {
+      username: '',
+      password: '',
+      errorMsg: ''
     }
+  },
+  methods: {
+    ...mapActions(['login']),
+    doSubmit (e) {
+      e.preventDefault()
+      if (this.validate()) {
+        this.login({
+          username: this.username,
+          password: this.password
+        })
+          .then(() => {
+            this.$router.replace('/app')
+          })
+      }
+    },
+    validate () {
+      if (!this.username.trim()) {
+        this.errorMsg = '姓名不能为空'
+        return false
+      }
+      if (!this.password.trim()) {
+        this.errorMsg = '密码不能为空'
+        return false
+      }
+      this.errorMsg = ''
+      return true
+    }
+  },
+  created () {
+
   }
+}
 </script>
 <style lang="stylus" scoped>
 .login-form
