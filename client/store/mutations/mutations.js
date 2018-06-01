@@ -27,6 +27,12 @@ export default {
   },
   doLogin (state, userInfo) {
     state.user = userInfo
+  },
+  startLoading (state) {
+    state.loading = true
+  },
+  endLoading (state) {
+    state.loading = false
   }
 }
 //同步操作，不能有异步的代码写再里面。

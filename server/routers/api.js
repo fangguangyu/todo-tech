@@ -22,7 +22,6 @@ const successResponse = (data) => {
 apiRouter
   .get('/todos', async (ctx) => {
     const todos = await ctx.db.getAllTodos()
-    console.log(todos)
     ctx.body = successResponse(todos)
   })
   .post('/todo', async (ctx) => {

@@ -1,3 +1,4 @@
+//只做请求数据
 import axios from 'axios'
 import { createError } from './util'
 
