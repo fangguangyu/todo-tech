@@ -38,7 +38,7 @@ export default {
     return handleRequest(request.post('/api/todo', todo))
   },
   deleteTodo (id) {
-    return handleRequest(request.delete(`/api/todo${id}`))
+    return handleRequest(request.delete(`/api/todo/${id}`))
   },
   deleteAllCompleted (ids) {
     return handleRequest(request.post('/api/delete/completed', { ids }))

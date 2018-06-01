@@ -100,7 +100,6 @@ export default {
       }
       this.addTodo(todo)
       e.target.value = '' // 清空input 框力的数据。
-      console.log(this.todos)
     },
     toggleTodoState (todo) {
       this.updateTodo({
@@ -117,7 +116,7 @@ export default {
       this.filter = state
     },
     clearAllCompleted () {
-      this.todos = this.todos.filter(todo => !todo.completed)
+      this.deleteAllCompleted()
     }
   }
 }

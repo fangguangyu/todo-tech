@@ -31,6 +31,7 @@ module.exports = (appId, appKey) => {
     }
   }
   return {
+    // handleRequest 会拼接我传过去
     async getAllTodos () {
       return handleRequest(await request.get(`/${className}`, {
         headers: getHeaders()

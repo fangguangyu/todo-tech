@@ -7,7 +7,7 @@ const validateUser = async (ctx, next) => {
     ctx.status = 401
     ctx.body = 'need login'
   } else {
-    next()
+    await next()
   }
 }
 
@@ -20,8 +20,9 @@ const successResponse = (data) => {
   }
 }
 apiRouter
-  .get('/todos', validateUser, async (ctx) => {
+  .get('/todos', async (ctx) => {
     const todos = await ctx.db.getAllTodos()
+    console.log(todos)
     ctx.body = successResponse(todos)
   })
   .post('/todo', async (ctx) => {
