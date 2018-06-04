@@ -76,6 +76,14 @@ export default {
       console.log(123)
     }
   },
+  asyncData ({ store }) {
+    // return new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve(123)
+    //   }, 1000)
+    // })
+    return store.dispatch('fetchTodos')
+  },
   methods: {
     ...mapActions([
       'fetchTodos',

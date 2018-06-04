@@ -50,5 +50,10 @@ config = merge(baseConfig, {
 
 //这个文件打包出来的一个json文件。只有html文件。
 
+config.resolve = {
+  alias: {
+    'model': path.join(__dirname, '../client/model/server-model.js')
+  }
+}
 
 module.exports = config
