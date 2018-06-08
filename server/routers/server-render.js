@@ -18,7 +18,8 @@ module.exports = async(ctx, renderer, template) => {
       //带有style标签的文件引用。
       style: context.renderStyles(),
       scripts: context.renderScripts(),
-      title: title.text()
+      title: title.text(),
+      initalState: context.renderState()
     })
     ctx.body = html
   } catch (err) {
