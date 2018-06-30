@@ -12,7 +12,7 @@ const config = {
   output: {
     filename: 'bundle.[hash:8].js',
     path: path.join(__dirname, '../public'),    //打包的出口文件目录
-    publicPath: 'http://127.0.0.1:8000/'
+    publicPath: 'http://127.0.0.1:8888/'
   },
   module: {      //编译vue,js,图片的loader。
     rules: [

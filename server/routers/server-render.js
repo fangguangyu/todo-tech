@@ -1,6 +1,6 @@
 const ejs = require('ejs')
 //接收三个参数。
-module.exports = async(ctx, renderer, template) => {
+module.exports = async (ctx, renderer, template) => {
   ctx.headers['Content-Type'] = 'text/html'
 
   const context = { url: ctx.path }    //这个context是要传入到vueserverrender里面的
@@ -8,6 +8,11 @@ module.exports = async(ctx, renderer, template) => {
   try {
     //appString就是渲染出了其中的html代码。
     const appString = await renderer.renderToString(context)
+
+    // if (context.router.currentRoute.fullPath !== ctx.path) {
+    //   return ctx.redirect(context.router.currentRoute.fullPath)
+    // }
+
     const {
       title
     } = context.meta.inject()
@@ -24,6 +29,6 @@ module.exports = async(ctx, renderer, template) => {
     ctx.body = html
   } catch (err) {
     console.log('render err', err)
-throw err
-}
+    throw err
+  }
 }
