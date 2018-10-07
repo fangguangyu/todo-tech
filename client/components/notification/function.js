@@ -3,7 +3,6 @@ import Component from './func-notification'
 
 //把这个构造器再重新构造一遍。再进行extend一次。生成一个新的Dom节点。
 const NotificationConstructor = Vue.extend(Component)
-console.log(NotificationConstructor)
 
 const instances = []
 //给组件添加一个id

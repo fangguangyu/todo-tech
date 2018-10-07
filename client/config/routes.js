@@ -21,7 +21,6 @@ export default [
     //嵌套路由，当匹配到/app/test的时候加载Login组件，但需要在Todo下放一个router-view。
     //路由内的守卫。当匹配到这个路由时才会出发这个钩子。
     beforeEnter (to, from, next) {
-      console.log('app route before enter')
       next()
     },
     children: [

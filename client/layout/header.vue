@@ -1,12 +1,12 @@
 <template>
   <header :class="$style.mainHeader">
     <h1>JTodo</h1>
-    <Swiper></Swiper>
+    <!-- <Swiper></Swiper> -->
   </header>
 </template>
 
 <script>
-import Swiper from '../views/swiper/swiper.vue'
+// import Swiper from '../views/swiper/swiper.vue'
 export default {
   // computed: {
   //     // $style() {
@@ -16,7 +16,7 @@ export default {
   //     // }
   // },
   components: {
-    Swiper
+    // Swiper
   }
 }
 </script>

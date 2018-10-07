@@ -33,9 +33,9 @@ module.exports = (appId, appKey) => {
   return {
     // handleRequest 会拼接我传过去
     async getAllTodos () {
-      return handleRequest(await request.get(`/${className}`, {
-        headers: getHeaders()
-      }))
+      return handleRequest(await request.get(`/${className}`,
+        { headers: getHeaders() }
+      ))
     },
     async addTodo (todo) {
       return handleRequest(await request.post(
@@ -64,6 +64,7 @@ module.exports = (appId, appKey) => {
           path: `/mcm/api/${className}/${id}`
         }
       })
+      console.log(requests)
       return handleRequest(await request.post(
         '/batch',
         { requests },

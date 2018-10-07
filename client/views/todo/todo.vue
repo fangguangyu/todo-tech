@@ -81,7 +81,7 @@ export default {
     //   setTimeout(() => {
     //     resolve(123)
     //   }, 1000)
-    // })s
+    // })
     return store.dispatch('fetchTodos')
   },
   methods: {
