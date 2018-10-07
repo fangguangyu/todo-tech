@@ -1,6 +1,6 @@
 const ejs = require('ejs')
 //接收三个参数。
-module.exports = async(ctx, renderer, template) => {
+module.exports = async (ctx, renderer, template) => {
   ctx.headers['Content-Type'] = 'text/html'
 
   const context = { url: ctx.path }    //这个context是要传入到vueserverrender里面的

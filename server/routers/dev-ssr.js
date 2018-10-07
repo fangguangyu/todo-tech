@@ -58,7 +58,7 @@ const handleSSR = async (ctx) => {
       clientManifest
     })
 
-  await serverRender(ctx,renderer, template)
+  await serverRender(ctx, renderer, template)
 }
 
 
