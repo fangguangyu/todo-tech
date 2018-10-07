@@ -76,12 +76,12 @@ export default {
       console.log(123)
     }
   },
-  asyncData ({ store }) {
+  asyncData ({ store, router }) {
     // return new Promise((resolve) => {
     //   setTimeout(() => {
     //     resolve(123)
     //   }, 1000)
-    // })
+    // })s
     return store.dispatch('fetchTodos')
   },
   methods: {

@@ -29,7 +29,7 @@ config = merge(baseConfig, {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: true
               }
             },
             'stylus-loader'

@@ -21,7 +21,7 @@ const devServer = {
   port: 8080,
   host: '0.0.0.0',
   overlay: {     //如果有任何错误让起显示到浏览器上面
-    errors: true,
+    errors: true
   },
   hot: true
 }
@@ -44,7 +44,7 @@ config = merge(baseConfig, {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
+              sourceMap: true
             }
           },
           'stylus-loader'
@@ -65,7 +65,7 @@ config = merge(baseConfig, {
   },
   plugins: defaultPlugins.concat([
     new webpack.HotModuleReplacementPlugin(),    //可以让页面渲染的时候不刷新。而是只加载修改那部分组件。
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ])
 })
 

@@ -23,11 +23,10 @@ const defaultPlugins = [
 //cross-env 模块的让window系统和mac系统的node的process.env全局变量定义为一致。
 
 
-
 let config
 
 const devServer = {
-  port: 8000,
+  port: 8888,
   host: '0.0.0.0',
   overlay: {     //如果有任何错误让起显示到浏览器上面
     errors: true
