@@ -88,6 +88,7 @@ export default {
   margin-bottom 20px
   border 1px solid #aaa
   width 100%
+  box-sizing border-box
   border-radius 0
   box-shadow 0 0 0
 .login-btn

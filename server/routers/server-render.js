@@ -3,15 +3,15 @@ const ejs = require('ejs')
 module.exports = async (ctx, renderer, template) => {
   ctx.headers['Content-Type'] = 'text/html'
 
-  const context = { url: ctx.path }    //这个context是要传入到vueserverrender里面的
+  const context = { url: ctx.path, user: ctx.session.user }    //这个context是要传入到vueserverrender里面的
   //context是拿到这个路由下的所有的数据。
   try {
     //appString就是渲染出了其中的html代码。
     const appString = await renderer.renderToString(context)
 
-    // if (context.router.currentRoute.fullPath !== ctx.path) {
-    //   return ctx.redirect(context.router.currentRoute.fullPath)
-    // }
+    if (context.router.currentRoute.fullPath !== ctx.path) {
+      return ctx.redirect(context.router.currentRoute.fullPath)
+    }
 
     const {
       title

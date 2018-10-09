@@ -15,7 +15,8 @@ config = merge(baseConfig, {
   output: {
     libraryTarget: 'commonjs2',   //是一种mmodule.exports =
     filename: 'server-entry.js',     //指定其输出的文件名字，因为没有用到缓存。所以可以不用hash
-    path: path.join(__dirname, '../server-build')    //保存的文件目录。
+    path: path.join(__dirname, '../server-build'),    //保存的文件目录。
+    publicPath: '/public/'
   },
   externals: Object.keys(require('../package.json').dependencies),  //不要打包这部分的文件。得到一个数组。
   module: {

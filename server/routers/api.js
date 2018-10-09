@@ -1,7 +1,10 @@
+// 定义前端用于请求的接口，返回数据给前端
+
 const Router = require('koa-router')
 
 const apiRouter = new Router({ prefix: '/api' })
 
+// 判断是否已经登录。
 const validateUser = async (ctx, next) => {
   if (!ctx.session.user) {
     ctx.status = 401

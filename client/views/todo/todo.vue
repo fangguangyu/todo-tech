@@ -71,9 +71,9 @@ export default {
     }
   },
   mounted () {
-    this.fetchTodos()
-    if (window.screen.width < 769) {
-      console.log(123)
+    // 当没有数据的时候才去加载数据。有数据就服用服务端渲染出来的数据
+    if (this.todos && this.todos.length < 1) {
+      this.fetchTodos()
     }
   },
   asyncData ({ store, router }) {
@@ -82,7 +82,11 @@ export default {
     //     resolve(123)
     //   }, 1000)
     // })
-    return store.dispatch('fetchTodos')
+    if (store.state.user) {
+      return store.dispatch('fetchTodos')
+    }
+    router.replace('/login')
+    return Promise.resolve()
   },
   methods: {
     ...mapActions([

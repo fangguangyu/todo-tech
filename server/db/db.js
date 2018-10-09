@@ -1,3 +1,4 @@
+// 操作数据库里的数据方法
 const sha1 = require('sha1')
 const axios = require('axios')
 

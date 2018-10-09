@@ -4,6 +4,10 @@ export default context => {
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp()
 
+    if (context.user) {
+      store.state.user = context.user
+    }
+
     router.push(context.url)
 
     //当路由的组件的加载完了之后调用的一个回调。
@@ -15,7 +19,6 @@ export default context => {
       }
       Promise.all(matchedComponents.map(Component => {
         if (Component.asyncData) {
-          console.log(Component.asyncData)
           return Component.asyncData({
             route: router.currentRoute,
             router,
@@ -25,6 +28,7 @@ export default context => {
       })).then(data => {
         context.meta = app.$meta()
         context.state = store.state
+        context.router = router
         resolve(app)
       })
     })
